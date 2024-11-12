@@ -1,0 +1,26 @@
+name: Retrain and Deploy Model
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # 每週日自動執行
+
+jobs:
+  retrain_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Retrain model
+        run: python retraining/retrain_model.py
+
+      - name: Build and push Docker image
+        run: bash scripts/deploy.sh
