@@ -20,6 +20,3 @@ jobs:
 
       - name: Retrain model
         run: python retraining/retrain_model.py
-
-      - name: Build and push Docker image
-        run: bash scripts/deploy.sh
