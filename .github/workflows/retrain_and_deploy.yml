@@ -1,8 +1,7 @@
 name: Retrain and Deploy Model
 
 on:
-  schedule:
-    - cron: "0 0 * * 0" # 每週日自動執行
+  push: # 將事件設置為一個不會觸發的事件
 
 jobs:
   retrain_and_deploy:
