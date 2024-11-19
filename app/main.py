@@ -2,7 +2,6 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import joblib
-from surprise import SVD
 
 # 初始化 FastAPI 應用
 app = FastAPI()

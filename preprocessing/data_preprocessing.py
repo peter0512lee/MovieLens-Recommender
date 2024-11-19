@@ -20,9 +20,10 @@ movie_stats = movie_stats.reset_index()
 # 過濾評分次數少於 50 次的電影
 popular_movies = movie_stats[movie_stats['rating_count'] > 50]
 
-# 資料標準化
+# 資料標準化到 0-1 之間
 scaler = MinMaxScaler()
-popular_movies['scaled_rating'] = scaler.fit_transform(popular_movies[['average_rating']])
+popular_movies['scaled_rating'] = scaler.fit_transform(
+    popular_movies[['average_rating']])
 
 # 保存處理後的資料
 merged_data.to_csv('data/cleaned_ratings.csv', index=False)
